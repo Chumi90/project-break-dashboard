@@ -14,6 +14,7 @@ function timeInterval(){
     }
     hour.innerHTML=hourspresents;
 }
+
 function dateInterval(){
     if(datepresents[1]=="/"){
         datepresents="0"+datepresents;
@@ -34,40 +35,40 @@ function mensajeUsuario(){
     let mensaje="";
     let hora=hourspresents.slice(0,2);
     let minuto=hourspresents.slice(3,5);
-    //console.log(hora)
-    //console.log(minuto)
-    switch(hora){
-        case "00":
+    hora=parseInt(hora);
+    switch(true){
+        case (hora<=7 && hora>=0):
             if (minuto>=1){
-            mensaje="Es hora de descansar. Apaga y sigue mañana";
+                mensaje="Es hora de descansar. Apaga y sigue mañana";
             }
             break;
-        case "07":
+        case (hora<=12 && hora>=7):
             if (minuto>=1){
                 mensaje="Buenos días, desayuna fuerte y a darle al código";
             }
             break;
-        case "12":
+        case (hora<=14 && hora>=12):
             if (minuto>=1){
                 mensaje="Echa un rato más pero no olvides comer";
             }
             break;
-        case "14":
+        case (hora<=16 && hora>=14):
             if (minuto>=1){
                 mensaje="Espero que hayas comido";
             }
             break;
-        case "16":
+        case (hora<=18 && hora>=16):
             if (minuto>=1){
                 mensaje="Buenas tardes, el último empujón";
             }
             break;
-        case "18":
+        case (hora<=22 && hora>=18):
             if (minuto>=1){
                 mensaje="Esto ya son horas extras, ... piensa en parar pronto";
+                console.log("FUNCIONA")
             }
             break;
-        case "22":
+        case (hora>=22):
             if (minuto>=1){
                 mensaje="Buenas noches, es hora de pensar en parar y descansar";
             }
